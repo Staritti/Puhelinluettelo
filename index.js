@@ -44,6 +44,10 @@ app.use(morgan("tiny"))
 ]
 const people = persons.length*/
 
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to the Phonebook API</h1><p>Use /api/persons to get the list of persons</p>');
+});
+
 app.get('/api/persons', (request, response) => {
   Person.find({}).then(persons => {
     response.json(persons)
